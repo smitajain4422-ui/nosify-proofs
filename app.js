@@ -60,6 +60,31 @@ window.onload = () => {
     saveProfiles();
 };
 
+function checkDesktopMode() {
+    const blocker = document.getElementById("mobile-blocker");
+
+    if (!blocker) return;
+
+    const ua = navigator.userAgent.toLowerCase();
+
+    const isPhone =
+        /android|iphone|ipad|ipod|mobile/i.test(ua);
+
+    const desktopUA =
+        !/mobile/i.test(ua);
+
+    if (isPhone && !desktopUA) {
+        blocker.style.display = "flex";
+
+        $("#app-workspace,#admin-dashboard,#gatekeeper-modal").hide();
+    } else {
+        blocker.style.display = "none";
+    }
+}
+
+window.addEventListener("load", checkDesktopMode);
+window.addEventListener("resize", checkDesktopMode);
+
 function loginSystem() {
     let val = document.getElementById("access-gate-key").value.trim();
     if (!val) return;
