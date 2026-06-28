@@ -53,10 +53,8 @@ body {
 }
 body.light-site .animated-bg { opacity: 0; }
 
-#mobile-blocker { display: none; }
-@media (max-width: 768px) {
-    #mobile-blocker { display: flex !important; }
-    #app-workspace, #admin-dashboard, #gatekeeper-modal { display: none !important; }
+#mobile-blocker {
+    display: none;
 }
 
 .panel {
